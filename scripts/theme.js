@@ -1,19 +1,31 @@
 const button = document.getElementById("theme-toggle");
 const html = document.documentElement;
+const themeMeta = document.getElementById("theme-color-meta");
 
-// Initialize from system preference or localStorage
+// Initialize theme
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   html.dataset.colorMode = savedTheme;
 } else {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  html.dataset.colorMode = prefersDark ? "dark" : "light";
+  html.dataset.colorMode = window.matchMedia("(prefers-color-scheme: dark)")
+    .matches
+    ? "dark"
+    : "light";
 }
 
-// Toggle theme on button click
+// Update meta theme color dynamically
+function updateThemeColor() {
+  const color = html.dataset.colorMode === "dark" ? "#0d1117" : "#ffffff";
+  themeMeta.setAttribute("content", color);
+}
+
+// Initial run
+updateThemeColor();
+
+// Toggle on click
 button.addEventListener("click", () => {
-  const current = html.dataset.colorMode;
-  const next = current === "light" ? "dark" : "light";
-  html.dataset.colorMode = next;
-  localStorage.setItem("theme", next);
+  html.dataset.colorMode =
+    html.dataset.colorMode === "light" ? "dark" : "light";
+  localStorage.setItem("theme", html.dataset.colorMode);
+  updateThemeColor();
 });

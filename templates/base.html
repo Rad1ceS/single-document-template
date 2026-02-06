@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#7F00FF" id="theme-color-meta" />
+    <meta name="theme-color" content="#000000" id="theme-color-meta" />
 
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}" />
@@ -20,8 +20,12 @@
       class="markdown-style"
       style="max-width: 960px; margin: 50px auto 60px auto; padding: 16px"
     >
-      <!-- Theme toggle button -->
-      <button id="theme-toggle" title="Toggle light/dark mode">🌓</button>
+      <header>
+        <!-- Theme toggle button -->
+        <button id="theme-toggle" aria-label="Toggle light/dark mode">
+          <div class="toggle-slider"></div>
+        </button>
+      </header>
 
       <!-- Main content -->
       <main class="content">{{ content }}</main>

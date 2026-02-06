@@ -1,3 +1,41 @@
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 40px;
+  height: 22px;
+  background-color: var(--color-theme-bg);
+  border: 1px solid var(--color-theme-text);
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  z-index: 1000;
+}
+
+#theme-toggle:hover {
+  border-color: var(--color-accent-fg);
+}
+
+.toggle-slider {
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-theme-text);
+  border-radius: 50%;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* Dark mode position */
+[data-color-mode="dark"] #theme-toggle .toggle-slider {
+  transform: translateX(16px);
+}
+
 /* Footer customization */
 footer {
   text-align: center;
