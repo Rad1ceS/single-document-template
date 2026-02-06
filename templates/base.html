@@ -5,15 +5,19 @@
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#7F00FF" />
+    <link rel="stylesheet" href="../styles/styles.css" />
   </head>
 
   <body>
-    <main class="content">
-      {{ content }}
-    </main>
+    <button id="theme-toggle">🌓</button>
+
+    <main class="content">{{ content }}</main>
 
     <footer>
       <p>Part of <strong>Radices</strong>.</p>
     </footer>
+
+    <script src="../scripts/theme.js"></script>
   </body>
 </html>
