@@ -1,31 +1,30 @@
-const button = document.getElementById("theme-toggle");
+const themeSelect = document.getElementById("theme-select");
 const html = document.documentElement;
 const themeMeta = document.getElementById("theme-color-meta");
 
-// Initialize theme
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-  html.dataset.colorMode = savedTheme;
-} else {
-  html.dataset.colorMode = window.matchMedia("(prefers-color-scheme: dark)")
-    .matches
-    ? "dark"
-    : "light";
-}
+// Detect system preference
+const systemPrefersDark = window.matchMedia(
+  "(prefers-color-scheme: dark)",
+).matches;
 
-// Update meta theme color dynamically
-function updateThemeColor() {
-  const color = html.dataset.colorMode === "dark" ? "#0d1117" : "#ffffff";
-  themeMeta.setAttribute("content", color);
-}
+// Initialize
+const savedTheme = localStorage.getItem("theme") || "system";
+themeSelect.value = savedTheme;
+applyTheme(savedTheme);
 
-// Initial run
-updateThemeColor();
-
-// Toggle on click
-button.addEventListener("click", () => {
-  html.dataset.colorMode =
-    html.dataset.colorMode === "light" ? "dark" : "light";
-  localStorage.setItem("theme", html.dataset.colorMode);
-  updateThemeColor();
+themeSelect.addEventListener("change", () => {
+  const selected = themeSelect.value;
+  localStorage.setItem("theme", selected);
+  applyTheme(selected);
 });
+
+function applyTheme(mode) {
+  if (mode === "system") {
+    html.dataset.colorMode = systemPrefersDark ? "dark" : "light";
+  } else {
+    html.dataset.colorMode = mode;
+  }
+
+  const themeColor = html.dataset.colorMode === "dark" ? "#0d1117" : "#ffffff";
+  themeMeta.setAttribute("content", themeColor);
+}

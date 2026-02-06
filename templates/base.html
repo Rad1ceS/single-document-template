@@ -9,6 +9,13 @@
     <meta name="description" content="{{ description }}" />
     <meta name="keywords" content="{{ keywords }}" />
 
+    <!-- Custom fonts -->
+    <link rel="stylesheet" href="../fonts/bpg-arial/css/bpg-arial.min.css" />
+    <link
+      rel="stylesheet"
+      href="../fonts/bpg-arial-caps/css/bpg-arial-caps.min.css"
+    />
+
     <!-- Markdown default CSS -->
     <link rel="stylesheet" href="../styles/default.css" />
     <!-- Custom overrides -->
@@ -18,24 +25,66 @@
   <body>
     <div
       class="markdown-style"
-      style="max-width: 960px; margin: 50px auto 60px auto; padding: 16px"
+      style="max-width: 960px; margin: 0px auto 60px auto; padding: 16px"
     >
-      <header>
-        <!-- Theme toggle button -->
+      <!-- <header>
         <button id="theme-toggle" aria-label="Toggle light/dark mode">
           <div class="toggle-slider"></div>
         </button>
-      </header>
+      </header> -->
 
       <!-- Main content -->
       <main class="content">{{ content }}</main>
-
-      <!-- Footer -->
-      <footer>
-        <p>Part of <strong>Radices</strong>.</p>
-        <p id="footer-additional">Your footer info here</p>
-      </footer>
     </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-theme">
+        <label for="theme-select" class="visually-hidden">რეჟიმი: </label>
+        <select id="theme-select">
+          <option value="light">ნათელი</option>
+          <option value="dark">ბრელი</option>
+          <option value="system">ავტომატური</option>
+        </select>
+      </div>
+      <p class="footer-paragraph">
+        The webpage is a part of the <strong>Radices</strong> project, created
+        by {{ author-display-name }}.
+      </p>
+      <p class="footer-paragraph">
+        The text was translated from {{ original-language }} by {{ translator
+        }}.
+      </p>
+
+      <div class="footer-social">
+        <span>Share:</span>
+        <a
+          href="https://twitter.com/intent/tweet?url={{ page-url }}&text={{ title }}"
+          target="_blank"
+          rel="noopener"
+          >Twitter</a
+        >
+        <a
+          href="https://www.facebook.com/sharer/sharer.php?u={{ page-url }}"
+          target="_blank"
+          rel="noopener"
+          >Facebook</a
+        >
+        <a
+          href="https://www.linkedin.com/shareArticle?mini=true&url={{ page-url }}&title={{ title }}"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+      </div>
+      <p class="footer-paragraph footer-edit">
+        ტექსტის რედაქტირება:
+        <a href="{{ github-edit-link }}" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+      </p>
+
+      <p class="footer-paragraph">© 2026 All rights reserved.</p>
+    </footer>
 
     <script src="../scripts/theme.js"></script>
   </body>
