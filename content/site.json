@@ -1,6 +1,25 @@
 {
   "title": "Text title here",
+  "title_short": "Title here",
   "description": "Text description here",
+  "description_short": "Description here",
   "keywords": "keywords here",
-  "language": "ka"
+
+  "translator": "Name Surname",
+
+  "language": "ka",
+  "locale": "ka_GE",
+
+  "year": "2026",
+
+  "original_link": "",
+  "original_language": "English",
+
+  "background": "#ffffff",
+  "theme": "#58a6ff",
+
+  "site_url": "https://www.hackermanifesto.ge/",
+
+  "github_edit_link": "",
+  "google_analytics_id": "G-CCC9N2HR5L"
 }

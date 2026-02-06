@@ -3,23 +3,101 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Theme color (updated dynamically) -->
     <meta name="theme-color" content="#ffffff" id="theme-color-meta" />
 
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}" />
     <meta name="keywords" content="{{ keywords }}" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="./icons/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./icons/icon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./icons/icon-32x32.png"
+    />
+
+    <!-- Apple Touch Icon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./icons/icon-180x180.png"
+    />
+
+    <!-- PWA / Android -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./icons/icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="./icons/icon-512x512.png"
+    />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- OG -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ title-short }}" />
+    <meta property="og:description" content="{{ description-short }}" />
+    <meta property="og:url" content="{{ site-url }}" />
+    <meta property="og:image" content="{{ site-url }}social/og-1200x630.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="{{ locale }}" />
+    <meta property="og:site_name" content="{{ title }}" />
+
+    <!-- X (Twitter) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title-short }}" />
+    <meta name="twitter:description" content="{{ description-short }}" />
+    <meta
+      name="twitter:image"
+      content="{{ site-url }}social/twitter-1200x630.png"
+    />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="{{ site-url }}" />
+
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="../fonts/bpg-arial/css/bpg-arial.min.css" />
     <link
       rel="stylesheet"
       href="../fonts/bpg-arial-caps/css/bpg-arial-caps.min.css"
     />
+
     <!-- Styles -->
     <link rel="stylesheet" href="../styles/default.css" />
     <link rel="stylesheet" href="../styles/styles.css" />
 
-    <!-- Manifest -->
-    <link rel="manifest" href="/manifest.json" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id={{ GA-ID }}"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "{{ GA-ID }}");
+    </script>
   </head>
 
   <body>
@@ -39,43 +117,49 @@
         </select>
       </div>
       <p class="footer-paragraph">
-        The webpage is a part of the <strong>Radices</strong> project, created
-        by {{ author-display-name }}.
+        წინამდებარი ვებგვერდი პროექტ <strong>Rad1ces</strong>-ის ნაწილს
+        წარმოადგენს
       </p>
       <p class="footer-paragraph">
-        The text was translated from {{ original-language }} by {{ translator
-        }}.
+        ტექსტი ნათარგმნია
+        <a href="{{ original-link }}" target="_blank" rel="noopener noreferrer"
+          >{{ original-language }}</a
+        >
+        | მთარგმნელი: {{ translator }}.
       </p>
 
       <div class="footer-social">
-        <span>Share:</span>
+        <span>გაზიარება:</span>
         <a
-          href="https://twitter.com/intent/tweet?url={{ page-url }}&text={{ title }}"
+          href="https://x.com/intent/tweet?url={{ site-url }}&text={{ title }}"
           target="_blank"
-          rel="noopener"
-          >Twitter</a
+          rel="noopener noreferrer"
+          >X</a
         >
         <a
-          href="https://www.facebook.com/sharer/sharer.php?u={{ page-url }}"
+          href="https://www.facebook.com/sharer/sharer.php?u={{ site-url }}"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >Facebook</a
         >
         <a
-          href="https://www.linkedin.com/shareArticle?mini=true&url={{ page-url }}&title={{ title }}"
+          href="https://www.linkedin.com/shareArticle?mini=true&url={{ site-url }}&title={{ title }}"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           >LinkedIn</a
         >
       </div>
       <p class="footer-paragraph footer-edit">
         ტექსტის რედაქტირება:
-        <a href="{{ github-edit-link }}" target="_blank" rel="noopener"
+        <a
+          href="{{ github-edit-link }}"
+          target="_blank"
+          rel="noopener noreferrer"
           >GitHub</a
         >
       </p>
 
-      <p class="footer-paragraph">© 2026 All rights reserved.</p>
+      <p class="footer-paragraph">© {{ year }}, Rad1ces</p>
     </footer>
 
     <script src="../scripts/theme.js"></script>
