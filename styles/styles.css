@@ -21,7 +21,7 @@ h6 {
 .footer {
   position: relative;
   background-color: var(--color-canvas-subtle);
-  color: var(--color-fg-subtle);
+  color: var(--color-theme-text);
   text-align: center;
   padding: 30px 16px;
   border-top: 1px solid var(--color-border-default);
@@ -36,6 +36,10 @@ h6 {
 
 .footer-paragraph {
   margin: 10px 0;
+}
+
+.footer-paragraph:last-child {
+  color: var(--color-fg-subtle);
 }
 
 .footer a {
